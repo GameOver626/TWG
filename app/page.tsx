@@ -1,69 +1,62 @@
-import Image from "next/image";
+import CustomCursor from '@/components/CustomCursor';
+import Navbar from '@/components/Navbar';
+import Gallery from '@/components/Gallery';
+import Booking from '@/components/Booking';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-mocha-900 text-platinum-200 relative selection:bg-lavender-300 selection:text-mocha-900">
+      <CustomCursor />
+      <Navbar />
+      
+      {/* Full-Screen Immersive Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+        <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-lavender-300 mb-4 font-mono">
+          Visual Arts &amp; Photography
+        </span>
+        
+        <h1 className="text-4xl md:text-7xl font-light text-platinum-100 tracking-tight max-w-4xl mb-6">
+          TWG ♠️
+        </h1>
+        
+        <p className="text-platinum-400 max-w-md font-light text-sm md:text-base mb-10">
+          Editorial, Commercial &amp; Lifestyle Photography.
+        </p>
+        
+        <div className="flex flex-row items-center justify-center gap-4">
+          <a 
+            href="#gallery" 
+            className="px-7 py-3.5 bg-lavender-300 text-mocha-900 font-medium text-sm rounded-full hover:bg-lavender-400 transition-all shadow-lg"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            Explore Gallery
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a 
+            href="#booking"
+            className="px-7 py-3.5 border border-mocha-700 text-platinum-200 text-sm rounded-full hover:border-lavender-300/50 hover:bg-mocha-800 transition-all"
           >
-            Documentation
+            Book a Session
           </a>
         </div>
-      </main>
-    </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 font-mono text-[10px] tracking-widest uppercase pointer-events-none">
+          <span>Scroll</span>
+          <div className="w-px h-6 bg-lavender-300 animate-pulse" />
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <div id="gallery" className="py-20">
+        <Gallery />
+      </div>
+
+      {/* Booking Section */}
+      <div id="booking" className="py-20 border-t border-mocha-800">
+        <Booking />
+      </div>
+
+      <Footer />
+    </main>
   );
 }
